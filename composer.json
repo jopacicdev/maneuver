@@ -1,0 +1,21 @@
+{
+    "name": "josip/maneuver",
+    "description": "Simple PHP Routing",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Josip Opacic",
+            "email": "josip.opacic@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6"
+    },
+    "autoload": {
+      "psr-4": {
+        "Maneuver\\": "src/"
+      }
+    }
+}
