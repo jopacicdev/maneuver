@@ -7,10 +7,10 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          syntaxCheck="false"
-         bootstrap="tests/Bootstrap.php">
+         bootstrap="vendor/autoload.php">
     <testsuites>
         <testsuite name="Maneuver Test Suite">
-            <directory>./tests/</directory>
+            <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
 
