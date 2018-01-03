@@ -5,6 +5,7 @@ namespace Maneuver\Tests;
 use Maneuver\Route;
 use Maneuver\Router;
 use PHPUnit\Framework\TestCase;
+use Maneuver\Fixtures\TestHandler;
 
 class RouterTest extends TestCase
 {
@@ -18,21 +19,21 @@ class RouterTest extends TestCase
 
     public function testRegister()
     {
-        $router = $this->router->register('GET', 'yolo', 'TestHandler');
+        $router = $this->router->register('GET', 'yolo', TestHandler::class);
 
         $this->assertInstanceOf(Router::class, $router);
     }
 
     public function testRegisterRouteWithGetMethod()
     {
-        $router = $this->router->get('yolo', 'TestHandler');
+        $router = $this->router->get('yolo', TestHandler::class);
 
         $this->assertInstanceOf(Router::class, $router);
     }
 
     public function testRegisterRouteWithPostMethod()
     {
-        $router = $this->router->post('yolo', 'TestHandler');
+        $router = $this->router->post('yolo', TestHandler::class);
 
         $this->assertInstanceOf(Router::class, $router);
     }
@@ -42,7 +43,7 @@ class RouterTest extends TestCase
      */
     public function testRegisterWithInvalidVerb()
     {
-        $this->router->register('FAT', 'yolo', 'TestHandler');
+        $this->router->register('FAT', 'yolo', TestHandler::class);
     }
 
     public function testHandle()
@@ -78,12 +79,5 @@ class RouterTest extends TestCase
 
         $this->assertInstanceOf(Router::class, $this->router);
         $this->assertFalse($response);
-    }
-}
-
-class TestHandler {
-    public function __invoke()
-    {
-        echo 'Handler Invoked!';
     }
 }
