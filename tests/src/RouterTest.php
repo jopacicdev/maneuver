@@ -66,7 +66,7 @@ class RouterTest extends TestCase
         $response = $this->router->routeRequest();
 
         $this->assertInstanceOf(Router::class, $this->router);
-        $this->assertFalse($response);
+        $this->assertNull($response);
     }
 
     public function testHandleWithNonRegisteredRouteUri()
@@ -78,6 +78,6 @@ class RouterTest extends TestCase
         $response = $this->router->routeRequest();
 
         $this->assertInstanceOf(Router::class, $this->router);
-        $this->assertFalse($response);
+        $this->assertNull($response);
     }
 }

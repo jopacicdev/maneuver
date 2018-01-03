@@ -49,7 +49,7 @@ class Router
                 continue;
             }
 
-            if (!preg_match(sprintf("/^%s$/", $r), $uri, $matches)) {
+            if (!preg_match(sprintf("/^%s$/", preg_quote($r, '/')), $uri, $matches)) {
                 continue;
             }
 
@@ -58,6 +58,7 @@ class Router
             return $route;
         }
 
-        return false;
+        // Route not found, responding with 404
+        http_response_code(404);
     }
 }
