@@ -1,4 +1,4 @@
 # maneuver
 [![Build Status](https://travis-ci.org/jopacicdev/maneuver.svg?branch=master)](https://travis-ci.org/jopacicdev/maneuver)
 
-Simple PHP router
+Simple PHP router, perfect for PoCs or getting started with small app up and running fast.
