@@ -68,9 +68,20 @@ class Route implements IRoute
     public function handle()
     {
         $handler = $this->getHandler();
-        $instance = new $handler;
 
-        $instance();
+        if (strpos($handler, '::')) {
+            $parts = explode('::', $handler);
+            list($controller, $action) = $parts;
+            call_user_func([$controller, $action]);
+        } else if (strpos($handler, '@')) {
+            $parts = explode('@', $handler);
+            list($controller, $action) = $parts;
+            $instance = new $controller;
+            $instance->{$action}();
+        } else {
+            $instance = new $handler;
+            $instance();
+        }
     }
 
     /**

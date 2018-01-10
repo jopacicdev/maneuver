@@ -60,6 +60,22 @@ class RouteTest extends TestCase
         $this->assertFalse(Route::isValid($verb));
     }
 
+    public function testCallStaticHandler()
+    {
+        $route = new Route(Route::GET, '/hello', '\Maneuver\Fixtures\TestHandler::staticHandler');
+
+        $route->handle();
+        $this->expectOutputString('Static Handler Invoked!');
+    }
+
+    public function testCallControllerAction()
+    {
+        $route = new Route(Route::GET, '/hello', '\Maneuver\Fixtures\TestHandler@indexAction');
+
+        $route->handle();
+        $this->expectOutputString('Controller Action Invoked!');
+    }
+
     public function validVerbs()
     {
         return [
