@@ -6,7 +6,7 @@ class Router
 {
     private $routes = [];
 
-    public function register(string $verb, string $route, $handler) : Router
+    public function register(string $verb, string $route, string $handler) : Router
     {
         if (!Route::isValid($verb)) {
             throw new \InvalidArgumentException("$verb is not supported");
@@ -17,14 +17,14 @@ class Router
         return $this;
     }
 
-    public function get(string $route, $handler) : Router
+    public function get(string $route, string $handler) : Router
     {
         $this->routes[] = new Route(Route::GET, $route, $handler);
 
         return $this;
     }
 
-    public function post(string $route, $handler) : Router
+    public function post(string $route, string $handler) : Router
     {
         $this->routes[] = new Route(Route::POST, $route, $handler);
 

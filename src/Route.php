@@ -21,7 +21,7 @@ class Route implements IRoute
      */
     private $route;
     /**
-     * @var string|callable
+     * @var string
      */
     private $handler;
 
@@ -29,12 +29,12 @@ class Route implements IRoute
      * Route constructor.
      * @param string $verb
      * @param string $route
-     * @param string|callable $handler
+     * @param string $handler
      */
-    public function __construct(string $verb, string $route, $handler)
+    public function __construct(string $verb, string $route, string $handler)
     {
         $this->verb = $verb;
-        $this->route = (strpos($this->route, '/') === 0 ? '' : '/') . $route;
+        $this->route = $route;
         $this->handler = $handler;
     }
 
@@ -55,9 +55,9 @@ class Route implements IRoute
     }
 
     /**
-     * @return string|callable
+     * @return string
      */
-    public function getHandler()
+    public function getHandler() : string
     {
         return $this->handler;
     }
@@ -69,8 +69,10 @@ class Route implements IRoute
     {
         $handler = $this->getHandler();
 
-        if (is_callable($handler)) {
-            $handler();
+        if (strpos($handler, '::')) {
+            $parts = explode('::', $handler);
+            list($controller, $action) = $parts;
+            call_user_func([$controller, $action]);
         } else if (strpos($handler, '@')) {
             $parts = explode('@', $handler);
             list($controller, $action) = $parts;
