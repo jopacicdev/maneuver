@@ -29,7 +29,7 @@ class RouteTest extends TestCase
 
     public function testGetRoute()
     {
-        $this->assertEquals('test', $this->route->getRoute());
+        $this->assertEquals('/test', $this->route->getRoute());
     }
 
     public function testGetHandler()
@@ -74,6 +74,16 @@ class RouteTest extends TestCase
 
         $route->handle();
         $this->expectOutputString('Controller Action Invoked!');
+    }
+
+    public function testCallCallable()
+    {
+        $route = new Route(Route::GET, '/hello', function() {
+            echo 'Callable Invoked!';
+        });
+
+        $route->handle();
+        $this->expectOutputString('Callable Invoked!');
     }
 
     public function validVerbs()

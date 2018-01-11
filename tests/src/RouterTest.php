@@ -19,21 +19,21 @@ class RouterTest extends TestCase
 
     public function testRegister()
     {
-        $router = $this->router->register('GET', 'yolo', TestHandler::class);
+        $router = $this->router->register('GET', '/yolo', TestHandler::class);
 
         $this->assertInstanceOf(Router::class, $router);
     }
 
     public function testRegisterRouteWithGetMethod()
     {
-        $router = $this->router->get('yolo', TestHandler::class);
+        $router = $this->router->get('/yolo', TestHandler::class);
 
         $this->assertInstanceOf(Router::class, $router);
     }
 
     public function testRegisterRouteWithPostMethod()
     {
-        $router = $this->router->post('yolo', TestHandler::class);
+        $router = $this->router->post('/yolo', TestHandler::class);
 
         $this->assertInstanceOf(Router::class, $router);
     }
@@ -43,15 +43,15 @@ class RouterTest extends TestCase
      */
     public function testRegisterWithInvalidVerb()
     {
-        $this->router->register('FAT', 'yolo', TestHandler::class);
+        $this->router->register('FAT', '/yolo', TestHandler::class);
     }
 
     public function testHandle()
     {
         $_SERVER['REQUEST_METHOD'] = Route::POST;
-        $_SERVER['REQUEST_URI'] = 'yolo';
+        $_SERVER['REQUEST_URI'] = '/yolo';
 
-        $router = $this->router->register('POST', 'yolo', TestHandler::class);
+        $router = $this->router->register('POST', '/yolo', TestHandler::class);
         $router->routeRequest();
 
         $this->assertInstanceOf(Router::class, $router);
@@ -60,9 +60,9 @@ class RouterTest extends TestCase
     public function testHandleWithNonRegisteredRouteVerb()
     {
         $_SERVER['REQUEST_METHOD'] = Route::POST;
-        $_SERVER['REQUEST_URI'] = 'yolo';
+        $_SERVER['REQUEST_URI'] = '/yolo';
 
-        $router = $this->router->register(Route::GET, 'yolo', TestHandler::class);
+        $router = $this->router->register(Route::GET, '/yolo', TestHandler::class);
         $response = $this->router->routeRequest();
 
         $this->assertInstanceOf(Router::class, $this->router);
@@ -72,9 +72,9 @@ class RouterTest extends TestCase
     public function testHandleWithNonRegisteredRouteUri()
     {
         $_SERVER['REQUEST_METHOD'] = Route::POST;
-        $_SERVER['REQUEST_URI'] = 'yolo';
+        $_SERVER['REQUEST_URI'] = '/yolo';
 
-        $router = $this->router->register(Route::POST, 'hai', TestHandler::class);
+        $router = $this->router->register(Route::POST, '/hai', TestHandler::class);
         $response = $this->router->routeRequest();
 
         $this->assertInstanceOf(Router::class, $this->router);

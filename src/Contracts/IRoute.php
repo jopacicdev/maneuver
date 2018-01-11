@@ -24,7 +24,7 @@ interface IRoute
     public function getVerb() : string;
 
     /**
-     * @return string
+     * @return string|callable
      */
-    public function getHandler() : string;
+    public function getHandler();
 }
