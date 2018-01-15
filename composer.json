@@ -1,6 +1,6 @@
 {
     "name": "josip/maneuver",
-    "description": "Simple PHP Routing",
+    "description": "Simple PHP Router",
     "type": "library",
     "license": "MIT",
     "authors": [
