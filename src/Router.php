@@ -11,6 +11,7 @@ class Router
      * @param string $route
      * @param string $handler
      * @return Router
+     * @throws \InvalidArgumentException
      */
     public function register(string $verb, string $route, string $handler) : Router
     {
