@@ -6,6 +6,12 @@ class Router
 {
     private $routes = [];
 
+    /**
+     * @param string $verb
+     * @param string $route
+     * @param string $handler
+     * @return Router
+     */
     public function register(string $verb, string $route, string $handler) : Router
     {
         if (!Route::isValid($verb)) {
