@@ -17,3 +17,4 @@ $r->routeRequest();
 [![Build Status](https://travis-ci.org/jopacicdev/maneuver.svg?branch=master)](https://travis-ci.org/jopacicdev/maneuver)
 [![codecov](https://codecov.io/gh/jopacicdev/maneuver/branch/master/graph/badge.svg)](https://codecov.io/gh/jopacicdev/maneuver)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/97fe7076834742c0b59dd56e46a28563)](https://www.codacy.com/app/josip.opacic/maneuver?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jopacicdev/maneuver&amp;utm_campaign=Badge_Grade)
