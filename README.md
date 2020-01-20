@@ -2,7 +2,7 @@
 
 Simple PHP router, perfect for PoCs or getting started with small app up and running fast.
 
-<img align="left" height="300" src="https://s18.postimg.org/asniim515/95c1255a-6605-4e0d-bfcc-848ea8e0819e.png">
+<img align="left" height="200" src="https://jopacicdev-public.s3.amazonaws.com/63719856-b017-4ba9-9c68-e7bb71a7b6a6_200x200.png">
 
 ``` php
 use Maneuver\Router;
